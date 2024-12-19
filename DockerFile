@@ -1,0 +1,16 @@
+# Usa la imagen de Node.js
+FROM node:18
+
+# Configura el directorio de trabajo
+WORKDIR /app
+
+# Copia los archivos necesarios
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+# Expone el puerto (si usas Express, por ejemplo)
+EXPOSE 3000
+
+# Comando para iniciar la app
+CMD ["node", "index.js"]

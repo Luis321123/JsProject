@@ -1,0 +1,32 @@
+{
+    "name": "java-js-project",
+    "version": "1.0.0",
+    "description": "Un backend simple utilizando Node.js, Express y MongoDB",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js",
+        "test": "jest"
+    },
+    "keywords": [
+        "node",
+        "express",
+        "mongodb",
+        "backend"
+    ],
+    "author": "Louis Aurea",
+    "license": "MIT",
+    "dependencies": {
+        "dotenv": "^8.6.0",
+        "express": "^4.21.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.13.22",
+        "pg": "^8.13.1",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.1"
+    },
+    "devDependencies": {
+        "jest": "^26.6.3",
+        "nodemon": "^2.0.4"
+    }
+}
