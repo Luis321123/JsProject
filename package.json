@@ -4,7 +4,7 @@
     "description": "Un backend simple utilizando Node.js, Express y MongoDB",
     "main": "src/index.js",
     "scripts": {
-        "start": "node src/index.js",
+        "start": " nodemon",
         "dev": "nodemon src/index.js",
         "test": "jest"
     },
@@ -27,6 +27,6 @@
     },
     "devDependencies": {
         "jest": "^26.6.3",
-        "nodemon": "^2.0.4"
+        "nodemon": "^2.0.22"
     }
 }
