@@ -20,13 +20,12 @@ app.use(bodyParser.json());
 const server = http.createServer(app);
 
 server.listen(8080, () =>{
-    console.log("listenting port 8080")
+    console.log("listenting port https://localhost:8080");
 });
 
-const MONGO_URL : " url de la bd"
-
+const MONGO_URL = "mongodb+srv://louis123:louis123@cluster0.88dww.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.Promise = Promise; 
-mongoose.connect)MONGO_URL;
+mongoose.connect(MONGO_URL); 
 mongoose.connection.on('error',(error: Error) => console.log(error));
 
 app.use('/', router());

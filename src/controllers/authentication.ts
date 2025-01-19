@@ -1,12 +1,12 @@
 import express from 'express';
-import { createUser, getUserByEmail } from 'db/users';
-import { authentication, random } from 'helper';
+import { createUser, getUserByEmail } from '../db/users';
+import { authentication, random } from '../helper';
 
-export const login = async ( req: express.Request, res: express.response) =>{
+export const login = async ( req: express.Request, res: express.Response) =>{
     try{
         const{ email, password} = req.body;
         if (!email || !password) {
-            return res.SendStatus(400);
+            return res.sendStatus(400);
         }
 
         const user = await getUserByEmail(email).select('+authentication.salt+authentication.password');
@@ -23,7 +23,7 @@ export const login = async ( req: express.Request, res: express.response) =>{
         }
 
         const salt = random();
-        user.autentication.sessionToken = authentication(salt, user._id.toString());
+        user.authentication.sessionToken = authentication(salt, user._id.toString());
 
         await user.save();
         
@@ -36,17 +36,17 @@ export const login = async ( req: express.Request, res: express.response) =>{
     }
 }
 
-export const register = async (req: express.Request, res: express.response) => {
+export const register = async (req: express.Request, res: express.Response) => {
     try{
         const{email, password, username} = req.body;
         
         if (!email || !password || !username) {
-            return res.SendStatus(400);
+            return res.sendStatus(400);
         }
         const existingUser = await getUserByEmail(email);
         
         if (existingUser){
-            return res.SendStatus(400);
+            return res.sendStatus(400);
         }
 
         const salt = random();
@@ -59,10 +59,10 @@ export const register = async (req: express.Request, res: express.response) => {
             }
         });
         
-        return res.SendStatus(200).json(user).nd();
+        return res.status(200).json(user).end();
 
     } catch(error){
         console.log(error);
-        return res.SendStatus(400);
+        return res.sendStatus(400);
     }
 }
