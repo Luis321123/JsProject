@@ -1,5 +1,5 @@
 import express from 'express';
-import { createUser, getUserByEmail, updateUserById } from '../db/users';
+import { createUser, getUserByEmail, updateUserById, deleteUserById} from '../db/users';
 import { authentication, random } from '../helper';
 
 export const login = async ( req: express.Request, res: express.Response) =>{
@@ -95,3 +95,4 @@ export const update = async (req: express.Request, res: express.Response) => {
         return res.sendStatus(400);
     }
 }
+
